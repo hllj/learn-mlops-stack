@@ -1,0 +1,12 @@
+trainer: 
+    gpus: 1
+    max_epochs: 3
+    log_every_n_steps: 10
+    deterministic: true
+    limit_train_batches: 1
+    limit_val_batches: 1
+checkpoint:
+    checkpoint_path: ./models
+    checkpoint_filename: best
+    save_top_k: 1
+    save_last: true

@@ -1,0 +1,5 @@
+wdir: ../models
+outs:
+- md5: 0ab47e1ad35712f5b69bb91d97b49903
+  size: 52549488
+  path: best.ckpt

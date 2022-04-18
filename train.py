@@ -1,3 +1,4 @@
+import os
 import torch
 import hydra
 import wandb
@@ -51,9 +52,9 @@ def main(cfg):
         cfg.model.tokenizer, cfg.processing.batch_size, cfg.processing.max_length
     )
     cola_model = ColaModel()
-
+    root_dir = hydra.utils.get_original_cwd()
     checkpoint_callback = ModelCheckpoint(
-        dirpath=cfg.training.checkpoint.checkpoint_path,
+        dirpath=os.path.join(root_dir, cfg.training.checkpoint.checkpoint_path),
         filename=cfg.training.checkpoint.checkpoint_filename,
         monitor="valid/loss",
         mode="min",

@@ -1,4 +1,4 @@
-me: GitHub Actions Basic Flow
+name: GitHub Actions Basic Flow
 on: [push]
 jobs:
   Basic-workflow:

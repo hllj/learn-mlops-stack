@@ -30,6 +30,17 @@ if __name__ == '__main__':
     sentence = "The boy is sitting on a bench"
     predictor = ColaONNXPredictor("./models/model.onnx")
     print(predictor.predict(sentence))
-    sentences = ["The boy is sitting on a bench"] * 10
+    sentences = [
+        "The boy is sitting on a bench",
+        "The cat is crying on a door",
+        "I am a death lover",
+        "Je suis vietnamien",
+        "J'ai un chien",
+        "The boy is sitting on a bench",
+        "The cat is crying on a door",
+        "I am a death lover",
+        "Je suis vietnamien",
+        "J'ai un chien",
+    ]
     for sentence in sentences:
         predictor.predict(sentence)

@@ -15,6 +15,7 @@ def convert_model(cfg):
     model_path = f"{root_dir}/models/best.ckpt"
     logger.info(f"Loading pre-trained model from : {model_path}")
     cola_model = ColaModel.load_from_checkpoint(model_path)
+    cola_model.to("cuda:1")
     data_model = DataModule(
         cfg.model.tokenizer, cfg.processing.batch_size, cfg.processing.max_length
     )
@@ -29,8 +30,8 @@ def convert_model(cfg):
     torch.onnx.export(
         cola_model,
         (
-            input_sample["input_ids"],
-            input_sample["attention_mask"]
+            input_sample["input_ids"].to("cuda:1"),
+            input_sample["attention_mask"].to("cuda:1")
         ),
         f"{root_dir}/models/model.onnx",
         export_params=True,

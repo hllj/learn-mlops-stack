@@ -1,19 +1,20 @@
 name: Create Docker Container
+
 on: [push]
 
 jobs:
-    mlops-container:
-        runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: ./
-            steps:
-                - name: Checkout
-                  uses: actions/checkout@v2
-                  with:
-                    ref: ${{github.ref}}
-                - name: Build container
-                  run: |
-                    docker network create data
-                    docker build --tag inference:latest
-                    docker run -d -p 3499:3499 --network data --name inference_container inference:latest
+  mlops-container:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+      - name: Build container
+        run: |
+          docker network create data
+          docker build --tag inference:latest .
+          docker run -d -p 3499:3499 --network data --name inference_container inference:latest

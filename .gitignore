@@ -2,4 +2,3 @@ outputs/*
 models/*
 __pycache__/*
 /models
-creds.json

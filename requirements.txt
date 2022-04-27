@@ -1,3 +1,5 @@
+pytorch_lightning==1.2.10
+transformers==4.5.1
 datasets
 fastapi
 uvicorn
@@ -8,11 +10,9 @@ omegaconf
 onnxruntime
 onnxruntime_gpu==1.2
 pandas
-pytorch_lightning
 scikit_learn
 scipy
 seaborn
 torch
-torchmetrics
-transformers
+torchmetrics==0.2.0
 wandb

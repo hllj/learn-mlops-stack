@@ -72,9 +72,9 @@ def main(cfg):
         name=f"{cfg.experiment.name}_{'%03d' % cfg.experiment.id}",
     )
     trainer = pl.Trainer(
-        gpus=1,
-        fast_dev_run=False,
-	max_epochs=cfg.training.trainer.max_epochs,
+        # gpus=1,
+        # fast_dev_run=False,
+	    max_epochs=cfg.training.trainer.max_epochs,
         logger=wandb_logger,
         callbacks=[checkpoint_callback],
         log_every_n_steps=cfg.training.trainer.log_every_n_steps,

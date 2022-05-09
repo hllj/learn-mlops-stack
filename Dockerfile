@@ -27,7 +27,7 @@ RUN pip install "dvc[s3]" --no-cache-dir
 RUN pip install -r requirements.txt --no-cache-dir
 
 # init dvc
-RUN dvc init --no-scm
+RUN dvc init --no-scm -f
 RUN dvc remote add -d model-store s3://mlops-dvc-1/models/
 
 RUN cat .dvc/config

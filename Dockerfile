@@ -16,14 +16,15 @@ ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
 
 RUN yum install git -y && yum -y install gcc-c++
 
-# install requirements
-RUN pip install "dvc[s3]" --no-cache-dir
-RUN pip install -r requirements.txt --no-cache-dir
 
 COPY ./ ./
 ENV PYTHONPATH "${PYTHONPATH}:./"
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
+
+# install requirements
+RUN pip install "dvc[s3]" --no-cache-dir
+RUN pip install -r requirements.txt --no-cache-dir
 
 # init dvc
 RUN dvc init --no-scm

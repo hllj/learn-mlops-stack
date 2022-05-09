@@ -8,7 +8,7 @@ matplotlib
 numpy
 omegaconf
 onnxruntime
-onnxruntime_gpu==1.2
+onnxruntime_gpu
 pandas
 scikit_learn
 scipy
